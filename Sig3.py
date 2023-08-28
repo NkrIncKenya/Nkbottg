@@ -1,5 +1,5 @@
 import logging
-from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboa>
+from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
 
 # Set your bot token here
@@ -21,7 +21,7 @@ def handle_continue_message(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(response_message)
 
 def main() -> None:
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging>
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
     updater = Updater(token=BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
