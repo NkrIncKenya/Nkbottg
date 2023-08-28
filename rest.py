@@ -49,16 +49,16 @@ def handle_continue_button(update: Update, context: CallbackContext) -> None:
     # Send a chat message with instructions when the button is clicked
     user_id = query.from_user.id
     context.bot.send_message(chat_id=user_id, text="Hello, You have ordered from Active Anonymous. "
-                                                    "Please send the word 'Continue' to the group or>
+                                                    "Please send the word 'Continue' to the group or to @Blackat5")
 
 def main() -> None:
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging>
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
     updater = Updater(token=BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
     # Register a message handler to handle special messages
-    dispatcher.add_handler(MessageHandler(Filters.regex(r'|'.join(map(re.escape, TRIGGER_WORDS))), h>
+    dispatcher.add_handler(MessageHandler(Filters.regex(r'|'.join(map(re.escape, TRIGGER_WORDS))), handle_special_messages))
 
     # Register a callback query handler for the "Continue" button
     dispatcher.add_handler(CallbackQueryHandler(handle_continue_button))
